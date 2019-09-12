@@ -21,8 +21,12 @@ public class TrelloController {
 
         List<TrelloBoardDto> trelloBoards = trelloClient.getTrelloBoards();
 
-        trelloBoards.forEach(trelloBoardDto -> System.out.println(trelloBoardDto.getId() + " " + trelloBoardDto.getName()));
-        System.out.println(trelloBoards.size());
-
+        for (TrelloBoardDto trelloBoardDto : trelloBoards) {
+            if ((trelloBoardDto.getId() != null) & (trelloBoardDto.getName() != null)) {
+                if (trelloBoardDto.getName().toLowerCase().contains("kodilla")) {
+                    System.out.println(trelloBoardDto.getId() + " " + trelloBoardDto.getName());
+                }
+            }
+        }
     }
 }
