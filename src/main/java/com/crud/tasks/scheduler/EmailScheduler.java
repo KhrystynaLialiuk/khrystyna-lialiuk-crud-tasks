@@ -22,7 +22,7 @@ public class EmailScheduler {
     @Autowired
     private AdminConfig adminConfig;
 
-    @Scheduled(cron = "0 0 10 * * *")
+    @Scheduled(cron = "${mail.frequency}")
     public void sendInformationEmail() {
         String taskOrTasks = " tasks";
         long size = taskRepository.count();

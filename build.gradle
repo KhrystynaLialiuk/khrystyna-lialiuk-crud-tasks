@@ -14,14 +14,26 @@ repositories {
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-web-services'
-	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation ('org.springframework.boot:spring-boot-starter-web-services')
+			{
+				exclude module : 'spring-boot-starter-logging'
+			}
+	implementation ('org.springframework.boot:spring-boot-starter-data-jpa')
+			{
+				exclude module : 'spring-boot-starter-logging'
+			}
 	implementation 'mysql:mysql-connector-java'
-	//implementation 'org.postgresql:postgresql'
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation ('org.springframework.boot:spring-boot-starter-test')
+			{
+				exclude module : 'spring-boot-starter-logging'
+			}
 	compileOnly 'org.projectlombok:lombok:1.18.8'
 	annotationProcessor 'org.projectlombok:lombok:1.18.8'
 	implementation 'io.springfox:springfox-swagger2:2.7.0'
 	implementation 'io.springfox:springfox-swagger-ui:2.7.0'
-	implementation 'org.springframework.boot:spring-boot-starter-mail:2.1.8.RELEASE'
+	implementation ('org.springframework.boot:spring-boot-starter-mail:2.1.8.RELEASE')
+			{
+				exclude module : 'spring-boot-starter-logging'
+			}
+	testCompile (group: 'uk.org.lidalia', name: 'slf4j-test', version: '1.2.0')
 }
