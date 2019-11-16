@@ -40,5 +40,6 @@ dependencies {
 			{
 				exclude module : 'spring-boot-starter-logging'
 			}
+	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 	testCompile (group: 'uk.org.lidalia', name: 'slf4j-test', version: '1.2.0')
 }
